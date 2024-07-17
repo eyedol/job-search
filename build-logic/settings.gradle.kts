@@ -1,0 +1,18 @@
+pluginManagement {
+    repositories {
+        google()
+        gradlePluginPortal()
+        mavenCentral()
+    }
+}
+
+dependencyResolutionManagement {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    // Reuse version catalog from the main build.
+    versionCatalogs { create("libs", { from(files("../gradle/libs.versions.toml")) }) }
+}
+
+rootProject.name = "build-logic"
