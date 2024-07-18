@@ -32,7 +32,7 @@ tasks.withType<KotlinCompilationTask<*>>().configureEach {
 
 java { toolchain { languageVersion.set(JavaLanguageVersion.of(jdk)) } }
 
-application { mainClass.set(mainClassStr) }
+application { mainClass.set("com.addhen.job.search.AppKt") }
 
 kotlin {
   jvm()
@@ -41,6 +41,7 @@ kotlin {
       dependencies {
         implementation(compose.runtime)
         implementation(compose.material3)
+        implementation(libs.selenium.java)
       }
     }
     jvmMain {
