@@ -6,9 +6,9 @@ spotless = "6.25.0"
 ksp = "2.0.0-1.0.23"
 clikt = "4.4.0"
 slf4j = "2.0.13"
-selenium = "4.22.0"
 markdown = "0.23.0"
 coroutines = "1.8.1"
+ksoup = "0.1.2"
 
 [plugins]
 compose = { id = "org.jetbrains.compose", version.ref = "compose" }
@@ -16,7 +16,6 @@ kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref 
 kotlin-plugin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
 
 [libraries]
@@ -26,8 +25,8 @@ spotless-gradlePlugin = { module = "com.diffplug.spotless:spotless-plugin-gradle
 # Regular module dependencies
 compose-markdown = { module = "com.mikepenz:multiplatform-markdown-renderer", version.ref = "markdown" }
 compose-markdown-m3 = { module = "com.mikepenz:multiplatform-markdown-renderer-m3", version.ref = "markdown" }
-compose-material3 = { module = "org.jetbrains.compose.material3:material3", version.ref = "compose" }
 kotlinx-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
 clikt = { module = "com.github.ajalt.clikt:clikt", version.ref = "clikt" }
 slf4jNop = { module = "org.slf4j:slf4j-nop", version.ref = "slf4j" }
-selenium-java = { module = "org.seleniumhq.selenium:selenium-java", version.ref = "selenium" }
+ksoup = { module = "com.fleeksoft.ksoup:ksoup", version.ref = "ksoup" }
+ksoup-network = { module = "com.fleeksoft.ksoup:ksoup-network", version.ref = "ksoup" }

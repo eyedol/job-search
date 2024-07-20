@@ -2,13 +2,16 @@
 // SPDX-License-Identifier: Apache-2.0
 package com.addhen.job.search.data.model
 
-import java.time.LocalDateTime
+import com.addhen.job.search.createTemplate
+import java.time.LocalDate
 
 data class JobPost(
     val title: String,
     val company: String,
     val location: String,
-    val date: LocalDateTime,
-    val description: String,
+    val date: LocalDate,
+    val moment: String,
     val url: String
 )
+
+fun List<JobPost>.markdown() = createTemplate(this)

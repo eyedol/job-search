@@ -15,7 +15,7 @@ plugins {
 }
 
 val jdk = libs.versions.jdk.get().toInt()
-val mainClassStr = "com.addhen.job.search.AppKt"
+val mainClassStr = "com.addhen.job.search.CliAppKt"
 
 tasks.withType<KotlinCompilationTask<*>>().configureEach {
   compilerOptions {
@@ -46,13 +46,14 @@ kotlin {
         implementation(libs.compose.markdown)
         implementation(libs.compose.markdown.m3)
         implementation(libs.kotlinx.coroutines)
+        implementation(libs.ksoup)
+        implementation(libs.ksoup.network)
       }
     }
     jvmMain {
       dependencies {
         implementation(compose.runtime)
-        implementation(libs.selenium.java)
-        // To silence this stupid log https://www.slf4j.org/codes.html#StaticLoggerBinder
+        // To silence this log https://www.slf4j.org/codes.html#StaticLoggerBinder
         implementation(libs.slf4jNop)
         // https://github.com/ajalt/clikt/issues/438
         implementation(libs.clikt)

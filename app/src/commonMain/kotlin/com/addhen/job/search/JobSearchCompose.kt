@@ -19,11 +19,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.produceState
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.addhen.job.search.data.model.JobSearchConfig
-import com.addhen.job.search.data.model.createTemplate
+import com.addhen.job.search.data.model.markdown
 import com.mikepenz.markdown.compose.LocalMarkdownColors
 import com.mikepenz.markdown.compose.LocalMarkdownTypography
 import com.mikepenz.markdown.compose.Markdown
@@ -31,21 +32,22 @@ import com.mikepenz.markdown.m3.markdownColor
 import com.mikepenz.markdown.m3.markdownTypography
 
 @Composable
-fun JobSearchCompose(jobSearch: JobSearch) {
+fun JobSearchCompose() {
   MaterialTheme {
     CompositionLocalProvider(
       LocalMarkdownColors provides markdownColor(),
       LocalMarkdownTypography provides markdownTypography(),
     ) {
-      JobSearchBody(jobSearch)
+      JobSearchBody()
     }
   }
 }
 
 @Composable
-private fun JobSearchBody(jobSearch: JobSearch) {
+private fun JobSearchBody() {
+  val jobSearch = remember { LinkedInJobSearchWithKSoup.create() }
   val markdown by produceState<String?>(null) {
-    value = createTemplate(jobSearch.search(JobSearchConfig()))
+    value = jobSearch.search(JobSearchConfig()).markdown()
   }
   if (markdown == null) {
     Column(
