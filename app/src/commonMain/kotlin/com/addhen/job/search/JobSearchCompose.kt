@@ -22,6 +22,8 @@ import androidx.compose.runtime.produceState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.addhen.job.search.data.model.JobSearchConfig
+import com.addhen.job.search.data.model.createTemplate
 import com.mikepenz.markdown.compose.LocalMarkdownColors
 import com.mikepenz.markdown.compose.LocalMarkdownTypography
 import com.mikepenz.markdown.compose.Markdown
@@ -29,20 +31,22 @@ import com.mikepenz.markdown.m3.markdownColor
 import com.mikepenz.markdown.m3.markdownTypography
 
 @Composable
-fun JobSearchCompose() {
+fun JobSearchCompose(jobSearch: JobSearch) {
   MaterialTheme {
     CompositionLocalProvider(
       LocalMarkdownColors provides markdownColor(),
       LocalMarkdownTypography provides markdownTypography(),
     ) {
-      JobSearchBody()
+      JobSearchBody(jobSearch)
     }
   }
 }
 
 @Composable
-private fun JobSearchBody() {
-  val markdown by produceState<String?>(null) { value = null }
+private fun JobSearchBody(jobSearch: JobSearch) {
+  val markdown by produceState<String?>(null) {
+    value = createTemplate(jobSearch.search(JobSearchConfig()))
+  }
   if (markdown == null) {
     Column(
       modifier = Modifier.fillMaxSize(),

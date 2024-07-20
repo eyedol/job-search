@@ -41,7 +41,6 @@ kotlin {
       dependencies {
         implementation(compose.runtime)
         implementation(compose.material3)
-        implementation(libs.selenium.java)
         implementation(compose.runtime)
         implementation(compose.material3)
         implementation(libs.compose.markdown)
@@ -51,9 +50,10 @@ kotlin {
     }
     jvmMain {
       dependencies {
+        implementation(compose.runtime)
+        implementation(libs.selenium.java)
         // To silence this stupid log https://www.slf4j.org/codes.html#StaticLoggerBinder
         implementation(libs.slf4jNop)
-        implementation(compose.runtime)
         // https://github.com/ajalt/clikt/issues/438
         implementation(libs.clikt)
         implementation(compose.desktop.currentOs)

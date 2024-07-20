@@ -9,7 +9,7 @@ class JobSearch2() {
   fun search() {
     val chromeDriverSettings = ChromeDriverSettings(pathToDriver = "/opt/homebrew/bin/chromedriver")
     chromeDriver(chromeDriverSettings) {
-      LinkedInJobSearch(webDriver = this).login("email", "password")
+      ///LinkedInJobSearch(webDriver = this).l("email", "password")
     }
   }
 }

@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeOptions
 abstract class DriverOptions(driverPath: String) {
   init {
     require(driverPath.isNotEmpty()) { "Path to driver cannot be empty" }
-    System.setProperty("webdriver.chrome.driver", driverPath)
+    //System.setProperty("webdriver.chrome.driver", driverPath)
   }
 }
 
