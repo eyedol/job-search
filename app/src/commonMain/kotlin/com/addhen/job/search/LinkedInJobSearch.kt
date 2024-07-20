@@ -39,7 +39,7 @@ class LinkedInJobSearchWithKSoup(
 
       ksoup.get(url) {
         elements("div.base-card") {
-          eachElement("div.base-card") {
+          forEachElement("div.base-card") {
             val title =
               select("h3.base-search-card__title") {
                 text().takeIf { it.isNotEmpty() } ?: "Title not found"
@@ -71,18 +71,6 @@ class LinkedInJobSearchWithKSoup(
             results.add(jobPost)
           }
         }
-
-        /*elements("div.base-card") { elements: Elements ->
-
-            val title = elements.select("h3.base-search-card__title")
-            val company = select("h4.base-search-card__subtitle")
-            val location = select(".job-search-card__location")
-            val link = select("a.base-card__full-link").attr("href")
-            val timePosted = select("time").attr("datetime")
-            val jobPost = JobPost(title, company, location, LocalDateTime.parse(timePosted) , link)
-
-            results.add(jobPost)
-        }*/
       }
       results.toList()
     }
@@ -100,7 +88,7 @@ fun Document.elements(className: String, init: Elements.() -> Unit) {
   return select(className).init()
 }
 
-internal fun Elements.eachElement(className: String, init: Element.() -> Unit) {
+fun Elements.forEachElement(className: String, init: Element.() -> Unit) {
   select(className).forEach(init)
 }
 
