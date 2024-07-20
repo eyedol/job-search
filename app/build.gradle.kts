@@ -42,6 +42,11 @@ kotlin {
         implementation(compose.runtime)
         implementation(compose.material3)
         implementation(libs.selenium.java)
+        implementation(compose.runtime)
+        implementation(compose.material3)
+        implementation(libs.compose.markdown)
+        implementation(libs.compose.markdown.m3)
+        implementation(libs.kotlinx.coroutines)
       }
     }
     jvmMain {

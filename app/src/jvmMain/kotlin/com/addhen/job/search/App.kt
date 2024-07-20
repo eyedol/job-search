@@ -10,7 +10,7 @@ import kotlin.system.exitProcess
 class App : CliktCommand() {
   override fun run() {
     val iTerm = Terminal(AnsiLevel.TRUECOLOR, interactive = true)
-    iTerm.print(JobSearch().search())
+    iTerm.print(JobSearch2().search())
     exitProcess(0)
   }
 }
