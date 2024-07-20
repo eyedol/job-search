@@ -46,9 +46,8 @@ fun JobSearchCompose() {
 @Composable
 private fun JobSearchBody() {
   val jobSearch = remember { LinkedInJobSearchWithKSoup.create() }
-  val markdown by produceState<String?>(null) {
-    value = jobSearch.search(JobSearchConfig()).markdown()
-  }
+  val markdown by
+    produceState<String?>(null) { value = jobSearch.search(JobSearchConfig()).markdown() }
   if (markdown == null) {
     Column(
       modifier = Modifier.fillMaxSize(),

@@ -6,12 +6,12 @@ import com.addhen.job.search.createTemplate
 import java.time.LocalDate
 
 data class JobPost(
-    val title: String,
-    val company: String,
-    val location: String,
-    val date: LocalDate,
-    val moment: String,
-    val url: String
+  val title: String,
+  val company: String,
+  val location: String,
+  val date: LocalDate,
+  val moment: String,
+  val url: String,
 )
 
 fun List<JobPost>.markdown() = createTemplate(this)

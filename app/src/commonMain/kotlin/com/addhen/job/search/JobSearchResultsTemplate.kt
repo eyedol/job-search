@@ -1,10 +1,13 @@
+// Copyright (C) 2024, Henry Addo
+// SPDX-License-Identifier: Apache-2.0
 package com.addhen.job.search
 
 import com.addhen.job.search.data.model.JobPost
 
 fun createTemplate(jobPosts: List<JobPost>): String {
-    val title = "# Job Search Results\r\n\r\n"
-  return title + """
+  val title = "# Job Search Results\r\n\r\n"
+  return title +
+    """
       ${jobPosts.joinToString("\r\n\r\n") { jobPost ->
       """
         **Title:** ${jobPost.title} ${"\r\n"}
@@ -15,5 +18,6 @@ fun createTemplate(jobPosts: List<JobPost>): String {
         ${"\r\n\r\n"}
           """.trimIndent()
       }}
-  """.trimIndent()
+  """
+      .trimIndent()
 }

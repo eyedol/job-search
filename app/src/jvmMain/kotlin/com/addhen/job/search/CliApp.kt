@@ -12,8 +12,8 @@ import com.github.ajalt.mordant.rendering.AnsiLevel
 import com.github.ajalt.mordant.rendering.TextColors
 import com.github.ajalt.mordant.terminal.Terminal
 import com.github.ajalt.mordant.widgets.Spinner
-import kotlinx.coroutines.runBlocking
 import kotlin.system.exitProcess
+import kotlinx.coroutines.runBlocking
 
 class CliApp : CliktCommand() {
   override fun run() {
@@ -26,7 +26,9 @@ class CliApp : CliktCommand() {
         progressBar()
       }
     animation.start()
-    val searchResults = runBlocking { LinkedInJobSearchWithKSoup.create().search(JobSearchConfig()).markdown() }
+    val searchResults = runBlocking {
+      LinkedInJobSearchWithKSoup.create().search(JobSearchConfig()).markdown()
+    }
     animation.stop()
 
     iTerm.print(Markdown(searchResults, hyperlinks = true))
@@ -34,14 +36,14 @@ class CliApp : CliktCommand() {
 }
 
 fun main(argv: Array<String>) {
-  
+
   val cli = CliApp()
   try {
-      cli.parse(argv)
+    cli.parse(argv)
   } catch (e: CliktError) {
-      cli.echoFormattedHelp(e)
-      exitProcess(e.statusCode)
+    cli.echoFormattedHelp(e)
+    exitProcess(e.statusCode)
   } finally {
-      exitProcess(0)
+    exitProcess(0)
   }
 }
