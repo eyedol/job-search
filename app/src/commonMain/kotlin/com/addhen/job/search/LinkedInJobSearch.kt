@@ -7,8 +7,6 @@ import com.addhen.job.search.data.model.JobSearchConfig
 import com.fleeksoft.ksoup.Ksoup
 import com.fleeksoft.ksoup.network.parseGetRequest
 import com.fleeksoft.ksoup.nodes.Document
-import com.fleeksoft.ksoup.nodes.Element
-import com.fleeksoft.ksoup.select.Elements
 import io.ktor.http.encodeURLQueryComponent
 import java.time.LocalDate
 import kotlinx.coroutines.Dispatchers
@@ -78,20 +76,4 @@ class LinkedInJobSearchWithKSoup(
   companion object {
     fun create(): JobSearch = LinkedInJobSearchWithKSoup()
   }
-}
-
-suspend fun Ksoup.get(url: String, init: Document.() -> Unit) {
-  parseGetRequest(url).init()
-}
-
-fun Document.elements(className: String, init: Elements.() -> Unit) {
-  return select(className).init()
-}
-
-fun Elements.forEachElement(className: String, init: Element.() -> Unit) {
-  select(className).forEach(init)
-}
-
-inline fun <T> Element.select(className: String, init: Elements.() -> T): T {
-  return select(className).init()
 }

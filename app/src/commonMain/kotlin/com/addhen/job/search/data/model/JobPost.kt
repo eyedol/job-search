@@ -10,7 +10,7 @@ data class JobPost(
   val company: String,
   val location: String,
   val date: LocalDate,
-  val moment: String,
+  val momentAgo: String,
   val url: String,
 )
 

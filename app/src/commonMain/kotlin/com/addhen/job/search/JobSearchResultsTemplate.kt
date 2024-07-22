@@ -14,6 +14,7 @@ fun createTemplate(jobPosts: List<JobPost>): String {
         **Company:** ${jobPost.company} ${"\r\n"}
         **Location:** ${jobPost.location} ${"\r\n"}
         **Date:** ${jobPost.date} ${"\r\n"}
+        **${jobPost.momentAgo}** ${"\r\n"}
         [Apply](${jobPost.url})
         ${"\r\n\r\n"}
           """.trimIndent()
