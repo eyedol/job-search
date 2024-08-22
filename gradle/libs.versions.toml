@@ -1,7 +1,7 @@
 [versions]
 compose = "1.6.11"
 jdk = "21"
-kotlin = "2.0.10"
+kotlin = "2.0.20"
 spotless = "6.25.0"
 ksp = "2.0.0-1.0.23"
 clikt = "4.4.0"
