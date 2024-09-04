@@ -8,7 +8,7 @@ clikt = "4.4.0"
 slf4j = "2.0.16"
 markdown = "0.25.0"
 coroutines = "1.8.1"
-ksoup = "0.1.5"
+ksoup = "0.1.6"
 
 [plugins]
 compose = { id = "org.jetbrains.compose", version.ref = "compose" }
