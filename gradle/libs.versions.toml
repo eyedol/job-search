@@ -7,7 +7,7 @@ ksp = "2.0.0-1.0.23"
 clikt = "4.4.0"
 slf4j = "2.0.16"
 markdown = "0.26.0"
-coroutines = "1.8.1"
+coroutines = "1.9.0"
 ksoup = "0.1.7"
 
 [plugins]
