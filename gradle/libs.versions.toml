@@ -1,5 +1,5 @@
 [versions]
-compose = "1.8.0+check"
+compose = "1.8.0"
 jdk = "21"
 kotlin = "2.1.20"
 spotless = "7.0.3"
