@@ -2,7 +2,7 @@
 compose = "1.8.1"
 jdk = "21"
 kotlin = "2.1.21"
-spotless = "7.0.3"
+spotless = "7.0.4"
 ksp = "2.0.0-1.0.23"
 clikt = "5.0.3"
 slf4j = "2.0.17"
